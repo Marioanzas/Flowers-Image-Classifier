@@ -12,14 +12,15 @@ parser = argparse.ArgumentParser(description='This is the parser of the predicti
 # Define the parser arguments
 parser.add_argument('image_dir', help = 'Provide the image data to be predicted directory. Mandatory argument', type = str)
 parser.add_argument('checkpoint_name', help = 'Provide the name of the checkpoint to be loaded. Mandatory argument', type = str)
+parser.add_argument('json_category_mapping_dir', help = 'Provide the path to the JSON that contains the mapping of the categories. Mandatory argument', type = str)
 parser.add_argument('-GPU', '--GPU', help = "Option to use the GPU for training", default = False, action='store_true')
-parser.add_argument('-top_k', '--top_k', help = "Option to use select the number of top K classes to be pritned", type = int, default = 5)
+parser.add_argument('-top_k', '--top_k', help = "Option to use select the number of top K classes to be printed", type = int, default = 5)
 
 # Run the parser and place the extracted data in a argparse.Namespace object
 args = parser.parse_args()
 
 # Import the label mapping
-with open('cat_to_name.json', 'r') as f:
+with open(args.json_category_mapping_dir, 'r') as f:
     cat_to_name = json.load(f)
     
 # Write a function that loads a checkpoint and rebuilds the model

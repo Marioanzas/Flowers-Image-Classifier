@@ -12,6 +12,7 @@ import argparse
 parser = argparse.ArgumentParser(description='This is the parser of the training script')
 # Define the parser arguments
 parser.add_argument('data_dir', help = 'Provide data directory. Mandatory argument', type = str)
+parser.add_argument('json_category_mapping_dir', help = 'Provide the path to the JSON that contains the mapping of the categories. Mandatory argument', type = str)
 parser.add_argument('-lr', '--learning_rate', help = "Learning rate", type = float, default=0.001)
 parser.add_argument('-hidden_units', '--hidden_units', help = "Number of hidden units in the classifier", type = int, default=1024)
 parser.add_argument('-epochs', '--epochs', help = "Number of epochs", type = int, default=4)
@@ -74,7 +75,7 @@ validation_loader = torch.utils.data.DataLoader(validation_datasets, batch_size=
 testing_loader = torch.utils.data.DataLoader(testing_datasets, batch_size=32, shuffle=True)
 
 # Import the label mapping
-with open('cat_to_name.json', 'r') as f:
+with open(args.json_category_mapping_dir, 'r') as f:
     cat_to_name = json.load(f)
     
 def select_model_architecture(args, cat_to_name):

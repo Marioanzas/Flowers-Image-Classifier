@@ -4,5 +4,5 @@ Project code for Udacity's AI Programming with Python Nanodegree program. In thi
 
 Sample command line for launching the `train.py` script:
 ```
-python train.py flowers -GPU
+python train.py flowers cat_to_name.json -GPU
 ```

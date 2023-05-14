@@ -6,3 +6,8 @@ Sample command line for launching the `train.py` script:
 ```
 python train.py flowers cat_to_name.json -GPU
 ```
+
+Likewise, a sample command line for launching the `predict.py` script:
+```
+python predict.py flowers checpoint-resnet50.pth cat_to_name.json -GPU
+```

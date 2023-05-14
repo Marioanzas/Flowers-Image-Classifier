@@ -15,7 +15,7 @@ parser.add_argument('data_dir', help = 'Provide data directory. Mandatory argume
 parser.add_argument('-lr', '--learning_rate', help = "Learning rate", type = float, default=0.001)
 parser.add_argument('-hidden_units', '--hidden_units', help = "Number of hidden units in the classifier", type = int, default=1024)
 parser.add_argument('-epochs', '--epochs', help = "Number of epochs", type = int, default=4)
-parser.add_argument('-GPU', '--GPU', help = "Option to use the GPU for training", type = bool, default = False)
+parser.add_argument('-GPU', '--GPU', help = "Option to use the GPU for training", default = False, action='store_true')
 parser.add_argument('-arch', '--model_arch', help = "Model architecture to be used by the neural network. Default: resnet50", type = str, default = 'resnet50')
 parser.add_argument('-save_dir', '--save_dir', help = "Set directory to save checkpoints", type = bool, default = False)
 # Run the parser and place the extracted data in a argparse.Namespace object

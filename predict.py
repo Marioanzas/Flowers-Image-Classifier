@@ -12,7 +12,7 @@ parser = argparse.ArgumentParser(description='This is the parser of the predicti
 # Define the parser arguments
 parser.add_argument('image_dir', help = 'Provide the image data to be predicted directory. Mandatory argument', type = str)
 parser.add_argument('checkpoint_name', help = 'Provide the name of the checkpoint to be loaded. Mandatory argument', type = str)
-parser.add_argument('-GPU', '--GPU', help = "Option to use the GPU for training", type = bool, default = False)
+parser.add_argument('-GPU', '--GPU', help = "Option to use the GPU for training", default = False, action='store_true')
 parser.add_argument('-top_k', '--top_k', help = "Option to use select the number of top K classes to be pritned", type = int, default = 5)
 
 # Run the parser and place the extracted data in a argparse.Namespace object
